@@ -15,7 +15,7 @@ print(경주_region, 경주_장축, 경주_단축)
 포항_region = model.predict([[포항_규모]])
 포항_장축, 포항_단축 = LongMinorAxis(포항_region)
 print(포항_region, 포항_장축, 포항_단축)
-포항_ellipse = returnEllipse(포항_경위도, theta=105, Long=포항_장축, Minor=포항_단축)
+포항_ellipse = returnEllipse(포항_경위도, theta=-13, Long=포항_장축, Minor=포항_단축)
 포항_poly = [[x, y] for x, y in 포항_ellipse.exterior.coords]
 
 양산단층 = [[35.21, 128.83], [36.27, 129.54]]
@@ -56,4 +56,4 @@ folium.Circle(location=경주_경위도, radius=400, color='#000000',
 folium.Circle(location=포항_경위도, radius=400, color='#000000',
               fill=True, weight='10', tooltip='포항 지진 진앙').add_to(m)
 m.add_child(folium.LatLngPopup())
-m.save('map2.html')
+m.save('index.html')

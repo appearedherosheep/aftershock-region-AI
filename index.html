@@ -1,446 +1,184 @@
 <!DOCTYPE html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-  <script>
-    L_NO_TOUCH = false;
-    L_DISABLE_3D = false;
-  </script>
-
-  <style>
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
-  <style>
-    #map {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-    }
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"
-  />
-
-  <meta
-    name="viewport"
-    content="width=device-width,
-                initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  />
-  <style>
-    #map_9b66f0c2e2a2c4bda630affe97c3c7ba {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      left: 0%;
-      top: 0%;
-    }
-  </style>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_8c4e4ff20362cf348822975aef46381a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
 </head>
-<body>
-  <div class="folium-map" id="map_9b66f0c2e2a2c4bda630affe97c3c7ba"></div>
+<body>    
+    
+            <div class="folium-map" id="map_8c4e4ff20362cf348822975aef46381a" ></div>
+        
 </body>
-<script>
-  var map_9b66f0c2e2a2c4bda630affe97c3c7ba = L.map(
-    "map_9b66f0c2e2a2c4bda630affe97c3c7ba",
-    {
-      center: [35.926, 129.2585],
-      crs: L.CRS.EPSG3857,
-      zoom: 10,
-      zoomControl: true,
-      preferCanvas: false,
-    }
-  );
+<script>    
+    
+            var map_8c4e4ff20362cf348822975aef46381a = L.map(
+                "map_8c4e4ff20362cf348822975aef46381a",
+                {
+                    center: [35.926, 129.2585],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
 
-  var tile_layer_812132b507fce79201af7c6d9cf71597 = L.tileLayer(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-      attribution:
-        'Data by \u0026copy; \u003ca href="http://openstreetmap.org"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href="http://www.openstreetmap.org/copyright"\u003eODbL\u003c/a\u003e.',
-      detectRetina: false,
-      maxNativeZoom: 18,
-      maxZoom: 18,
-      minZoom: 0,
-      noWrap: false,
-      opacity: 1,
-      subdomains: "abc",
-      tms: false,
-    }
-  ).addTo(map_9b66f0c2e2a2c4bda630affe97c3c7ba);
+            
 
-  var polygon_ffe5309b43c3b04884d025b094d29a60 = L.polygon(
-    [
-      [35.5238142304368, 129.00309803983106],
-      [35.51449972218744, 129.017251920511],
-      [35.50745321035096, 129.03297315416356],
-      [35.50274255668834, 129.05011033671457],
-      [35.50041312736953, 129.06849842772795],
-      [35.500487356072156, 129.08796033983526],
-      [35.50296452793333, 129.10830864418392],
-      [35.50782078643381, 129.1293473754796],
-      [35.515009363149574, 129.15087391923896],
-      [35.52446102815715, 129.172680963078],
-      [35.53608475675573, 129.19455849324356],
-      [35.5497686060847, 129.2162958171607],
-      [35.56538079319467, 129.23768359251733],
-      [35.58277096418935, 129.25851584334487],
-      [35.60177164221554, 129.27859194367994],
-      [35.62219984035707, 129.29771854970147],
-      [35.64385882389864, 129.31571146173792],
-      [35.66654000498872, 129.3323973982104],
-      [35.69002495145463, 129.3476156644292],
-      [35.71408749042375, 129.36121970017155],
-      [35.73849588649183, 129.37307849113645],
-      [35.76301507346183, 129.38307783068424],
-      [35.78740891815961, 129.39112141970895],
-      [35.8114424945257, 129.39713179405112],
-      [35.83488434608165, 129.40105107052028],
-      [35.8575087149823, 129.40284150434155],
-      [35.87909771618746, 129.40248585265843],
-      [35.899443435813716, 129.39998754059107],
-      [35.91834993345903, 129.3953706282504],
-      [35.93563512921564, 129.38867957902613],
-      [35.95113255719947, 129.37997883137996],
-      [35.96469296870721, 129.36935217826803],
-      [35.976185769563195, 129.35690196016898],
-      [35.98550027781256, 129.34274807948904],
-      [35.99254678964904, 129.32702684583649],
-      [35.99725744331165, 129.30988966328545],
-      [35.9995868726305, 129.2915015722721],
-      [35.99951264392785, 129.27203966016478],
-      [35.997035472066685, 129.2516913558161],
-      [35.99217921356619, 129.23065262452042],
-      [35.984990636850455, 129.20912608076105],
-      [35.97553897184287, 129.18731903692202],
-      [35.96391524324429, 129.16544150675648],
-      [35.95023139391532, 129.14370418283931],
-      [35.93461920680532, 129.12231640748274],
-      [35.917229035810664, 129.10148415665518],
-      [35.89822835778446, 129.08140805632013],
-      [35.87780015964293, 129.06228145029854],
-      [35.85614117610139, 129.0442885382621],
-      [35.83345999501128, 129.02760260178965],
-      [35.80997504854537, 129.01238433557083],
-      [35.785912509576264, 128.99878029982852],
-      [35.76150411350816, 128.9869215088636],
-      [35.736984926538184, 128.97692216931577],
-      [35.7125910818404, 128.9688785802911],
-      [35.68855750547432, 128.9628682059489],
-      [35.66511565391838, 128.95894892947973],
-      [35.6424912850177, 128.9571584956585],
-      [35.620902283812555, 128.9575141473416],
-      [35.60055656418629, 128.96001245940897],
-      [35.581650066541, 128.96462937174965],
-      [35.56436487078435, 128.9713204209739],
-      [35.54886744280053, 128.9800211686201],
-      [35.53530703129279, 128.990647821732],
-      [35.5238142304368, 129.00309803983106],
-    ],
-    {
-      bubblingMouseEvents: true,
-      color: "#3388ff",
-      dashArray: null,
-      dashOffset: null,
-      fill: "Cartodb Positron",
-      fillColor: "#3388ff",
-      fillOpacity: 0.2,
-      fillRule: "evenodd",
-      lineCap: "round",
-      lineJoin: "round",
-      noClip: false,
-      opacity: 1.0,
-      smoothFactor: 1.0,
-      stroke: true,
-      weight: 3,
-    }
-  ).addTo(map_9b66f0c2e2a2c4bda630affe97c3c7ba);
+        
+    
+            var tile_layer_11bb207b38d251c3e18b558e8dae5b44 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
+        
+    
+            var polygon_9d990d07ecc953075cfcb09689c946c9 = L.polygon(
+                [[35.53892580822776, 129.01491694310525], [35.53023360666138, 129.0281251963509], [35.5236578755994, 129.04279608697894], [35.51926194292653, 129.05878832629264], [35.51708814387759, 129.0759479002852], [35.517157413325656, 129.09410955287865], [35.519469084168094, 129.1130983774304], [35.52400089375102, 129.13273150117962], [35.5307091982708, 129.1528198464121], [35.53952939308779, 129.1731699513818], [35.55037653490429, 129.19358583345337], [35.563146159814906, 129.21387087652204], [35.57771528935123, 129.23382972453405], [35.59394361483152, 129.2532701628725], [35.61167484861004, 129.27200496948893], [35.63073822921269, 129.2898537179542], [35.65095016586315, 129.30664451506337], [35.67211600656246, 129.32221565626156], [35.69403191269433, 129.33641718294695], [35.71648682210221, 129.34911232665425], [35.739264481733414, 129.36017882620968], [35.76214553027414, 129.36951010517294], [35.78490961071894, 129.37701629822658], [35.80733749252895, 129.38262511662828], [35.829213182942034, 129.38628254439067], [35.85032600710109, 129.3879533584851], [35.870472636967975, 129.38762146805843], [35.889459049483804, 129.38529006939692], [35.90710239511706, 129.38098161514415], [35.923232758804396, 129.37473759806983], [35.93769479632583, 129.36661815147164], [35.950349230354206, 129.356701470059], [35.96107419177224, 129.3450830568948], [35.969766393338645, 129.3318748036491], [35.97634212440063, 129.3172039130211], [35.98073805707346, 129.3012116737074], [35.982911856122435, 129.2840520997148], [35.98284258667435, 129.26589044712136], [35.980530915831906, 129.24690162256962], [35.97599910624899, 129.2272684988204], [35.969290801729194, 129.20718015358796], [35.96047060691223, 129.18683004861822], [35.94962346509574, 129.16641416654667], [35.93685384018511, 129.14612912347803], [35.922284710648796, 129.12617027546597], [35.90605638516851, 129.10672983712755], [35.888325151389964, 129.08799503051108], [35.869261770787304, 129.07014628204587], [35.84904983413688, 129.05335548493667], [35.82788399343753, 129.03778434373848], [35.80596808730568, 129.02358281705307], [35.78351317789782, 129.0108876733458], [35.760735518266614, 128.99982117379034], [35.737854469725875, 128.9904898948271], [35.71509038928109, 128.98298370177343], [35.69266250747107, 128.97737488337174], [35.67078681705796, 128.97371745560935], [35.649673992898926, 128.9720466415149], [35.629527363032025, 128.97237853194162], [35.6105409505162, 128.97470993060313], [35.592897604882964, 128.97901838485586], [35.5767672411956, 128.98526240193024], [35.5623052036742, 128.99338184852837], [35.54965076964582, 129.00329852994105], [35.53892580822776, 129.01491694310525]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": "Cartodb Positron", "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
+        
+    
+        var popup_18b27bba126306d959cde08bb839b474 = L.popup({"maxWidth": 200, "minWidth": 200});
 
-  var popup_f206eed35b5f2534d7c0eaea8cc3aca7 = L.popup({
-    maxWidth: 200,
-    minWidth: 200,
-  });
+        
+            var html_11b21f0cfbcf36b4e3c01fb5af4fe91e = $(`<div id="html_11b21f0cfbcf36b4e3c01fb5af4fe91e" style="width: 100.0%; height: 100.0%;"><h1 style="margin-bottom:0;"><b>경주 지진</b></h1> <br/>          <p style="margin:0;font-size:15px;"> 진원: KMA 35.77°N 129.18°E<br/> 여진역: 152.1km<sup>2</sup><br/>            장축: 28.2km<br/>            단축: 5.3km</p> </div>`)[0];
+            popup_18b27bba126306d959cde08bb839b474.setContent(html_11b21f0cfbcf36b4e3c01fb5af4fe91e);
+        
 
-  var html_055c4d1a33ed30cfae1dc0ae0fc9058b = $(
-    `<div id="html_055c4d1a33ed30cfae1dc0ae0fc9058b" style="width: 100.0%; height: 100.0%;"><h1 style="margin-bottom:0;"><b>경주 지진</b></h1> <br/>          <p style="margin:0;font-size:15px;"> 진원: KMA 35.77°N 129.18°E<br/> 여진역: 152.1km<sup>2</sup><br/>            장축: 28.2km<br/>            단축: 5.3km</p> </div>`
-  )[0];
-  popup_f206eed35b5f2534d7c0eaea8cc3aca7.setContent(
-    html_055c4d1a33ed30cfae1dc0ae0fc9058b
-  );
+        polygon_9d990d07ecc953075cfcb09689c946c9.bindPopup(popup_18b27bba126306d959cde08bb839b474)
+        ;
 
-  polygon_ffe5309b43c3b04884d025b094d29a60.bindPopup(
-    popup_f206eed35b5f2534d7c0eaea8cc3aca7
-  );
-
-  polygon_ffe5309b43c3b04884d025b094d29a60.bindTooltip(
-    `<div>
+        
+    
+    
+            polygon_9d990d07ecc953075cfcb09689c946c9.bindTooltip(
+                `<div>
                      경주 지진 여진역 예측 범위
                  </div>`,
-    { sticky: true }
-  );
+                {"sticky": true}
+            );
+        
+    
+            var polygon_53f85438a69e12c643c41d9749dae085 = L.polygon(
+                [[36.27287313180779, 129.29458629798546], [36.2676537519125, 129.2853708204035], [36.26091608020398, 129.2769703680841], [36.252725004143976, 129.2694658419752], [36.24315940827265, 129.2629295147657], [36.232311414507315, 129.25742433485965], [36.22028549495807, 129.253003320149], [36.207197465804164, 129.24970904742221], [36.193173371921056, 129.2475732423265], [36.17834827299912, 129.2466164738324], [36.16286494284527, 129.24684795614365], [36.14687249439289, 129.248265459959], [36.130524943662955, 129.2508553339418], [36.11397972650547, 129.25459263618978], [36.09739618240619, 129.2594413744394], [36.0809340199603, 129.26535485269062], [36.064751778791255, 129.2722761209153], [36.04900530272766, 129.28013852351688], [36.033846238941884, 129.2888663412603], [36.01942057750498, 129.29837552048951], [36.00586724542246, 129.30857448261037], [35.99331676869125, 129.31936500604223], [35.9818900152631, 129.33064317214584], [35.97169703102001, 129.34230036601633], [35.96283597997229, 129.35422432250425], [35.95539219888547, 129.36630020739028], [35.9494373754406, 129.37841172330167], [35.94502885784272, 129.39044222971938], [35.9422091025262, 129.40227586628998], [35.94100526527617, 129.41379866862445], [35.941428939703464, 129.4248996658373], [35.94347604559173, 129.43547194925688], [35.94712686819221, 129.44541370201455], [35.9523462480875, 129.4546291795965], [35.95908391979601, 129.46302963191587], [35.96727499585601, 129.47053415802478], [35.97684059172733, 129.4770704852343], [35.98768858549267, 129.48257566514036], [35.99971450504193, 129.486996679851], [36.012802534195835, 129.4902909525778], [36.02682662807894, 129.4924267576735], [36.04165172700086, 129.49338352616758], [36.05713505715472, 129.49315204385636], [36.0731275056071, 129.49173454004102], [36.08947505633703, 129.48914466605822], [36.106020273494515, 129.48540736381017], [36.12260381759379, 129.4805586255606], [36.139065980039696, 129.47464514730936], [36.15524822120873, 129.46772387908467], [36.17099469727234, 129.45986147648307], [36.186153761058115, 129.4511336587397], [36.200579422495004, 129.44162447951047], [36.21413275457754, 129.43142551738964], [36.22668323130873, 129.42063499395775], [36.2381099847369, 129.40935682785414], [36.24830296897998, 129.39769963398368], [36.257164020027695, 129.38577567749576], [36.26460780111453, 129.37369979260973], [36.27056262455938, 129.36158827669828], [36.27497114215726, 129.34955777028063], [36.277790897473785, 129.33772413370997], [36.27899473472382, 129.32620133137556], [36.27857106029652, 129.3151003341627], [36.276523954408255, 129.3045280507431], [36.27287313180779, 129.29458629798546]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": "Cartodb Positron", "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
+        
+    
+        var popup_e2ca94621e31d6e142671005db866e12 = L.popup({"maxWidth": 200, "minWidth": 200});
 
-  var polygon_7170fb9372db42cf503b5db83740dff9 = L.polygon(
-    [
-      [36.07345681174897, 129.22281128190457],
-      [36.06497656684678, 129.2256691510995],
-      [36.056929922218174, 129.22991700526862],
-      [36.04939437144964, 129.23551393525415],
-      [36.04244248601448, 129.24240603956073],
-      [36.03614121636967, 129.25052694345632],
-      [36.03055124718652, 129.25979843819704],
-      [36.02572641292409, 129.2701312342202],
-      [36.02171317937386, 129.28142582105164],
-      [36.01855019616873, 129.29357342564595],
-      [36.01626792456602, 129.3064570599303],
-      [36.01488834408892, 129.31995264746362],
-      [36.01442474085157, 129.33393021836054],
-      [36.01488157960655, 129.34825516097237],
-      [36.016254460746936, 129.362789518271],
-      [36.018530162676896, 129.3773933164503],
-      [36.02168676914273, 129.39192591295063],
-      [36.025693880298675, 129.4062473509233],
-      [36.030512905473714, 129.42021970709175],
-      [36.036097434821144, 129.43370842002804],
-      [36.0423936862705, 129.4465835860529],
-      [36.04934102347843, 129.4587212102792],
-      [36.05687253978982, 129.47000440075058],
-      [36.06491570258548, 129.48032449417477],
-      [36.07339305181081, 129.48958210241054],
-      [36.08222294595859, 129.49768806962987],
-      [36.091320348321275, 129.50456433093728],
-      [36.100597645940994, 129.5101446641774],
-      [36.10996549337014, 129.51437532769063],
-      [36.119333673116955, 129.51721557787465],
-      [36.128611964489394, 129.5186380615675],
-      [36.137711012469424, 129.5186290794736],
-      [36.14654318825103, 129.51718871809547],
-      [36.15502343315322, 129.51433084890053],
-      [36.16307007778184, 129.51008299473142],
-      [36.17060562855036, 129.5044860647459],
-      [36.17755751398553, 129.4975939604393],
-      [36.18385878363033, 129.48947305654372],
-      [36.189448752813476, 129.480201561803],
-      [36.19427358707591, 129.46986876577984],
-      [36.19828682062614, 129.45857417894837],
-      [36.20144980383127, 129.44642657435406],
-      [36.20373207543399, 129.43354294006974],
-      [36.20511165591108, 129.42004735253641],
-      [36.20557525914843, 129.4060697816395],
-      [36.20511842039346, 129.39174483902764],
-      [36.20374553925306, 129.37721048172904],
-      [36.20146983732312, 129.3626066835497],
-      [36.198313230857266, 129.34807408704938],
-      [36.19430611970134, 129.33375264907673],
-      [36.189487094526285, 129.31978029290826],
-      [36.18390256517887, 129.30629157997197],
-      [36.1776063137295, 129.29341641394714],
-      [36.170658976521565, 129.28127878972083],
-      [36.16312746021019, 129.26999559924946],
-      [36.15508429741452, 129.25967550582527],
-      [36.14660694818919, 129.2504178975895],
-      [36.13777705404141, 129.24231193037014],
-      [36.12867965167872, 129.23543566906275],
-      [36.119402354059005, 129.2298553358226],
-      [36.11003450662987, 129.22562467230938],
-      [36.100666326883044, 129.2227844221254],
-      [36.09138803551062, 129.22136193843255],
-      [36.082288987530575, 129.22137092052645],
-      [36.07345681174897, 129.22281128190457],
-    ],
-    {
-      bubblingMouseEvents: true,
-      color: "#3388ff",
-      dashArray: null,
-      dashOffset: null,
-      fill: "Cartodb Positron",
-      fillColor: "#3388ff",
-      fillOpacity: 0.2,
-      fillRule: "evenodd",
-      lineCap: "round",
-      lineJoin: "round",
-      noClip: false,
-      opacity: 1.0,
-      smoothFactor: 1.0,
-      stroke: true,
-      weight: 3,
-    }
-  ).addTo(map_9b66f0c2e2a2c4bda630affe97c3c7ba);
+        
+            var html_8c215cd731531cb58928b338b56f6bbe = $(`<div id="html_8c215cd731531cb58928b338b56f6bbe" style="width: 100.0%; height: 100.0%;"><h1 style="margin-bottom:0;"><b>포항 지진</b></h1> <br/>          <p style="margin:0;font-size:15px;"> 진원: KMA 36.11°N 129.36°E<br/> 여진역: 53.6km<sup>2</sup><br/>            장축: 16.7km<br/>            단축: 3.2km</p> </div>`)[0];
+            popup_e2ca94621e31d6e142671005db866e12.setContent(html_8c215cd731531cb58928b338b56f6bbe);
+        
 
-  var popup_f69106e480e557190975a84ee0226391 = L.popup({
-    maxWidth: 200,
-    minWidth: 200,
-  });
+        polygon_53f85438a69e12c643c41d9749dae085.bindPopup(popup_e2ca94621e31d6e142671005db866e12)
+        ;
 
-  var html_22b3d34682f7e08a5c8c4d04ff9c4a1f = $(
-    `<div id="html_22b3d34682f7e08a5c8c4d04ff9c4a1f" style="width: 100.0%; height: 100.0%;"><h1 style="margin-bottom:0;"><b>포항 지진</b></h1> <br/>          <p style="margin:0;font-size:15px;"> 진원: KMA 36.11°N 129.36°E<br/> 여진역: 53.6km<sup>2</sup><br/>            장축: 16.7km<br/>            단축: 3.2km</p> </div>`
-  )[0];
-  popup_f69106e480e557190975a84ee0226391.setContent(
-    html_22b3d34682f7e08a5c8c4d04ff9c4a1f
-  );
-
-  polygon_7170fb9372db42cf503b5db83740dff9.bindPopup(
-    popup_f69106e480e557190975a84ee0226391
-  );
-
-  polygon_7170fb9372db42cf503b5db83740dff9.bindTooltip(
-    `<div>
+        
+    
+    
+            polygon_53f85438a69e12c643c41d9749dae085.bindTooltip(
+                `<div>
                      포항 지진 여진역 예측 범위
                  </div>`,
-    { sticky: true }
-  );
-
-  var poly_line_25da0547767af4924fe6f2e2127e8a27 = L.polyline(
-    [
-      [35.21, 128.83],
-      [36.27, 129.54],
-    ],
-    {
-      bubblingMouseEvents: true,
-      color: "#25292e",
-      dashArray: null,
-      dashOffset: null,
-      fill: false,
-      fillColor: "#25292e",
-      fillOpacity: 0.2,
-      fillRule: "evenodd",
-      lineCap: "round",
-      lineJoin: "round",
-      noClip: false,
-      opacity: 1.0,
-      smoothFactor: 1.0,
-      stroke: true,
-      weight: "7",
-    }
-  ).addTo(map_9b66f0c2e2a2c4bda630affe97c3c7ba);
-
-  poly_line_25da0547767af4924fe6f2e2127e8a27.bindTooltip(
-    `<div>
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_50aebc8f1bdabc86bad7ae359e50bbbb = L.polyline(
+                [[35.21, 128.83], [36.27, 129.54]],
+                {"bubblingMouseEvents": true, "color": "#25292e", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#25292e", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": "7"}
+            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
+        
+    
+            poly_line_50aebc8f1bdabc86bad7ae359e50bbbb.bindTooltip(
+                `<div>
                      양산단층
                  </div>`,
-    { sticky: true }
-  );
-
-  var poly_line_daa3ef1b347c8f2f43044673e1ad6f4b = L.polyline(
-    [
-      [35.9225, 129.2984],
-      [35.5, 129.3822],
-    ],
-    {
-      bubblingMouseEvents: true,
-      color: "#25292e",
-      dashArray: null,
-      dashOffset: null,
-      fill: false,
-      fillColor: "#25292e",
-      fillOpacity: 0.2,
-      fillRule: "evenodd",
-      lineCap: "round",
-      lineJoin: "round",
-      noClip: false,
-      opacity: 1.0,
-      smoothFactor: 1.0,
-      stroke: true,
-      weight: "7",
-    }
-  ).addTo(map_9b66f0c2e2a2c4bda630affe97c3c7ba);
-
-  poly_line_daa3ef1b347c8f2f43044673e1ad6f4b.bindTooltip(
-    `<div>
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_cfa4492e57395d3ee4aa441494839ec2 = L.polyline(
+                [[35.9225, 129.2984], [35.5, 129.3822]],
+                {"bubblingMouseEvents": true, "color": "#25292e", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#25292e", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": "7"}
+            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
+        
+    
+            poly_line_cfa4492e57395d3ee4aa441494839ec2.bindTooltip(
+                `<div>
                      울산단층
                  </div>`,
-    { sticky: true }
-  );
-
-  var circle_045040b6e6f927a5ab072a841599901b = L.circle([35.75, 129.18], {
-    bubblingMouseEvents: true,
-    color: "#000000",
-    dashArray: null,
-    dashOffset: null,
-    fill: "crimson",
-    fillColor: "#000000",
-    fillOpacity: 0.2,
-    fillRule: "evenodd",
-    lineCap: "round",
-    lineJoin: "round",
-    opacity: 1.0,
-    radius: 400,
-    stroke: true,
-    weight: "10",
-  }).addTo(map_9b66f0c2e2a2c4bda630affe97c3c7ba);
-
-  circle_045040b6e6f927a5ab072a841599901b.bindTooltip(
-    `<div>
+                {"sticky": true}
+            );
+        
+    
+            var circle_2d05ac1171f340add7c62ab7471cd3ba = L.circle(
+                [35.75, 129.18],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": "crimson", "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 400, "stroke": true, "weight": "10"}
+            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
+        
+    
+            circle_2d05ac1171f340add7c62ab7471cd3ba.bindTooltip(
+                `<div>
                      경주 지진 진앙
                  </div>`,
-    { sticky: true }
-  );
-
-  var circle_2d536a387b346b4da9268e4d0b69c062 = L.circle([36.11, 129.37], {
-    bubblingMouseEvents: true,
-    color: "#000000",
-    dashArray: null,
-    dashOffset: null,
-    fill: true,
-    fillColor: "#000000",
-    fillOpacity: 0.2,
-    fillRule: "evenodd",
-    lineCap: "round",
-    lineJoin: "round",
-    opacity: 1.0,
-    radius: 400,
-    stroke: true,
-    weight: "10",
-  }).addTo(map_9b66f0c2e2a2c4bda630affe97c3c7ba);
-
-  circle_2d536a387b346b4da9268e4d0b69c062.bindTooltip(
-    `<div>
+                {"sticky": true}
+            );
+        
+    
+            var circle_694b4b9b6addd4d2966335a5d31dbc8d = L.circle(
+                [36.11, 129.37],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 400, "stroke": true, "weight": "10"}
+            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
+        
+    
+            circle_694b4b9b6addd4d2966335a5d31dbc8d.bindTooltip(
+                `<div>
                      포항 지진 진앙
                  </div>`,
-    { sticky: true }
-  );
-
-  var lat_lng_popup_cebf9b6a8804c3ae9561c2cede260b8a = L.popup();
-  function latLngPop(e) {
-    lat_lng_popup_cebf9b6a8804c3ae9561c2cede260b8a
-      .setLatLng(e.latlng)
-      .setContent(
-        "Latitude: " +
-          e.latlng.lat.toFixed(4) +
-          "<br>Longitude: " +
-          e.latlng.lng.toFixed(4)
-      )
-      .openOn(map_9b66f0c2e2a2c4bda630affe97c3c7ba);
-  }
-  map_9b66f0c2e2a2c4bda630affe97c3c7ba.on("click", latLngPop);
+                {"sticky": true}
+            );
+        
+    
+                var lat_lng_popup_4d1ad3abd35d46155ecbc2439e2e6f68 = L.popup();
+                function latLngPop(e) {
+                    lat_lng_popup_4d1ad3abd35d46155ecbc2439e2e6f68
+                        .setLatLng(e.latlng)
+                        .setContent("Latitude: " + e.latlng.lat.toFixed(4) +
+                                    "<br>Longitude: " + e.latlng.lng.toFixed(4))
+                        .openOn(map_8c4e4ff20362cf348822975aef46381a);
+                    }
+                map_8c4e4ff20362cf348822975aef46381a.on('click', latLngPop);
+            
 </script>

@@ -11,7 +11,7 @@ from shapely.geometry import Point
 from shapely.affinity import scale, rotate
 
 def PolyLR():
-    path = 'main/aftershock-region.csv'
+    path = '../data/aftershock-region.csv'
     data = pd.read_csv(path)
     data = data.dropna()
     x = data[['magnitude']]
