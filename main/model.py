@@ -11,7 +11,7 @@ from shapely.geometry import Point
 from shapely.affinity import scale, rotate
 
 def PolyLR():
-    path = '../data/aftershock-region.csv'
+    path = 'D:/github/aftershock-region-AI/data/aftershock-region.csv'
     data = pd.read_csv(path)
     data = data.dropna()
     x = data[['magnitude']]
@@ -46,6 +46,5 @@ def returnEllipse(center, theta, Long, Minor):
     circle = s.buffer(r)
     ellipse = scale(circle, 1, (1-e*e)**(1/2))
     ellipse = rotate(ellipse, alpha, use_radians=True)
-    print(ellipse.exterior.coords)
+    # print(ellipse.exterior.coords)
     return ellipse
-

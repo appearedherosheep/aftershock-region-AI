@@ -1,184 +1,531 @@
 <!DOCTYPE html>
-<head>    
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    
-        <script>
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        </script>
-    
-    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
-    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
-    
-            <meta name="viewport" content="width=device-width,
-                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-            <style>
-                #map_8c4e4ff20362cf348822975aef46381a {
-                    position: relative;
-                    width: 100.0%;
-                    height: 100.0%;
-                    left: 0.0%;
-                    top: 0.0%;
-                }
-            </style>
-        
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+  <script>
+    L_NO_TOUCH = false;
+    L_DISABLE_3D = false;
+  </script>
+  <link rel="stylesheet" href="index.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
+    rel="stylesheet"
+  />
+
+  <meta
+    name="viewport"
+    content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
 </head>
-<body>    
-    
-            <div class="folium-map" id="map_8c4e4ff20362cf348822975aef46381a" ></div>
-        
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light nav-bar">
+    <div class="container-fluid">
+      <a class="navbar-brand font" href="/">여진경보시스템</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a
+            class="nav-link active nav-bar-menu"
+            aria-current="page"
+            href="/index.html"
+            >Home</a
+          >
+          <a class="nav-link nav-bar-menu" href="/About.html">About</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="accordion left-box" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button
+          class="accordion-button accord-btn"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseOne"
+          aria-expanded="true"
+          aria-controls="panelsStayOpen-collapseOne"
+        >
+          포항 지진
+        </button>
+      </h2>
+      <div
+        id="panelsStayOpen-collapseOne"
+        class="accordion-collapse collapse show"
+        aria-labelledby="panelsStayOpen-headingOne"
+      >
+        <div class="accordion-body">
+          <strong>진원: KMA 36.11°N 129.36°E</strong>
+          <br />
+          <strong>규모: 5.4</strong>
+          <br />
+          여진역: 53.6km2
+          <br />
+          장축: 16.7km
+          <br />
+          단축: 3.2km
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+        <button
+          class="accordion-button accord-btn"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseTwo"
+          aria-expanded="true"
+          aria-controls="panelsStayOpen-collapseTwo"
+        >
+          경주 지진
+        </button>
+      </h2>
+      <div
+        id="panelsStayOpen-collapseTwo"
+        class="accordion-collapse collapse show"
+        aria-labelledby="panelsStayOpen-headingTwo"
+      >
+        <div class="accordion-body">
+          <strong>진원: KMA 35.77°N 129.18°E</strong>
+          <br />
+          <strong>규모: 5.8</strong>
+          <br />
+          여진역: 152.1km2
+          <br />
+          장축: 28.2km
+          <br />
+          단축: 5.3km
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="folium-map right-box"
+    id="map_e081f737edfbd08b86ac873fabb6bb9e"
+  ></div>
 </body>
-<script>    
-    
-            var map_8c4e4ff20362cf348822975aef46381a = L.map(
-                "map_8c4e4ff20362cf348822975aef46381a",
-                {
-                    center: [35.926, 129.2585],
-                    crs: L.CRS.EPSG3857,
-                    zoom: 10,
-                    zoomControl: true,
-                    preferCanvas: false,
-                }
-            );
+<script>
+  var map_e081f737edfbd08b86ac873fabb6bb9e = L.map(
+    "map_e081f737edfbd08b86ac873fabb6bb9e",
+    {
+      center: [35.926, 129.2585],
+      crs: L.CRS.EPSG3857,
+      zoom: 10,
+      zoomControl: true,
+      preferCanvas: false,
+    }
+  );
 
-            
+  var tile_layer_c665e286238dbaba3889c39a9f607291 = L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+      attribution:
+        'Data by \u0026copy; \u003ca href="http://openstreetmap.org"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href="http://www.openstreetmap.org/copyright"\u003eODbL\u003c/a\u003e.',
+      detectRetina: false,
+      maxNativeZoom: 18,
+      maxZoom: 18,
+      minZoom: 0,
+      noWrap: false,
+      opacity: 1,
+      subdomains: "abc",
+      tms: false,
+    }
+  ).addTo(map_e081f737edfbd08b86ac873fabb6bb9e);
 
-        
-    
-            var tile_layer_11bb207b38d251c3e18b558e8dae5b44 = L.tileLayer(
-                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
-        
-    
-            var polygon_9d990d07ecc953075cfcb09689c946c9 = L.polygon(
-                [[35.53892580822776, 129.01491694310525], [35.53023360666138, 129.0281251963509], [35.5236578755994, 129.04279608697894], [35.51926194292653, 129.05878832629264], [35.51708814387759, 129.0759479002852], [35.517157413325656, 129.09410955287865], [35.519469084168094, 129.1130983774304], [35.52400089375102, 129.13273150117962], [35.5307091982708, 129.1528198464121], [35.53952939308779, 129.1731699513818], [35.55037653490429, 129.19358583345337], [35.563146159814906, 129.21387087652204], [35.57771528935123, 129.23382972453405], [35.59394361483152, 129.2532701628725], [35.61167484861004, 129.27200496948893], [35.63073822921269, 129.2898537179542], [35.65095016586315, 129.30664451506337], [35.67211600656246, 129.32221565626156], [35.69403191269433, 129.33641718294695], [35.71648682210221, 129.34911232665425], [35.739264481733414, 129.36017882620968], [35.76214553027414, 129.36951010517294], [35.78490961071894, 129.37701629822658], [35.80733749252895, 129.38262511662828], [35.829213182942034, 129.38628254439067], [35.85032600710109, 129.3879533584851], [35.870472636967975, 129.38762146805843], [35.889459049483804, 129.38529006939692], [35.90710239511706, 129.38098161514415], [35.923232758804396, 129.37473759806983], [35.93769479632583, 129.36661815147164], [35.950349230354206, 129.356701470059], [35.96107419177224, 129.3450830568948], [35.969766393338645, 129.3318748036491], [35.97634212440063, 129.3172039130211], [35.98073805707346, 129.3012116737074], [35.982911856122435, 129.2840520997148], [35.98284258667435, 129.26589044712136], [35.980530915831906, 129.24690162256962], [35.97599910624899, 129.2272684988204], [35.969290801729194, 129.20718015358796], [35.96047060691223, 129.18683004861822], [35.94962346509574, 129.16641416654667], [35.93685384018511, 129.14612912347803], [35.922284710648796, 129.12617027546597], [35.90605638516851, 129.10672983712755], [35.888325151389964, 129.08799503051108], [35.869261770787304, 129.07014628204587], [35.84904983413688, 129.05335548493667], [35.82788399343753, 129.03778434373848], [35.80596808730568, 129.02358281705307], [35.78351317789782, 129.0108876733458], [35.760735518266614, 128.99982117379034], [35.737854469725875, 128.9904898948271], [35.71509038928109, 128.98298370177343], [35.69266250747107, 128.97737488337174], [35.67078681705796, 128.97371745560935], [35.649673992898926, 128.9720466415149], [35.629527363032025, 128.97237853194162], [35.6105409505162, 128.97470993060313], [35.592897604882964, 128.97901838485586], [35.5767672411956, 128.98526240193024], [35.5623052036742, 128.99338184852837], [35.54965076964582, 129.00329852994105], [35.53892580822776, 129.01491694310525]],
-                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": "Cartodb Positron", "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
-            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
-        
-    
-        var popup_18b27bba126306d959cde08bb839b474 = L.popup({"maxWidth": 200, "minWidth": 200});
+  var poly_line_3864d733129910778743c5b82c0ee976 = L.polyline(
+    [
+      [35.21, 128.83],
+      [36.27, 129.54],
+    ],
+    {
+      bubblingMouseEvents: true,
+      color: "#25292e",
+      dashArray: null,
+      dashOffset: null,
+      fill: false,
+      fillColor: "#25292e",
+      fillOpacity: 0.2,
+      fillRule: "evenodd",
+      lineCap: "round",
+      lineJoin: "round",
+      noClip: false,
+      opacity: 1.0,
+      smoothFactor: 1.0,
+      stroke: true,
+      weight: "7",
+    }
+  ).addTo(map_e081f737edfbd08b86ac873fabb6bb9e);
 
-        
-            var html_11b21f0cfbcf36b4e3c01fb5af4fe91e = $(`<div id="html_11b21f0cfbcf36b4e3c01fb5af4fe91e" style="width: 100.0%; height: 100.0%;"><h1 style="margin-bottom:0;"><b>경주 지진</b></h1> <br/>          <p style="margin:0;font-size:15px;"> 진원: KMA 35.77°N 129.18°E<br/> 여진역: 152.1km<sup>2</sup><br/>            장축: 28.2km<br/>            단축: 5.3km</p> </div>`)[0];
-            popup_18b27bba126306d959cde08bb839b474.setContent(html_11b21f0cfbcf36b4e3c01fb5af4fe91e);
-        
-
-        polygon_9d990d07ecc953075cfcb09689c946c9.bindPopup(popup_18b27bba126306d959cde08bb839b474)
-        ;
-
-        
-    
-    
-            polygon_9d990d07ecc953075cfcb09689c946c9.bindTooltip(
-                `<div>
-                     경주 지진 여진역 예측 범위
-                 </div>`,
-                {"sticky": true}
-            );
-        
-    
-            var polygon_53f85438a69e12c643c41d9749dae085 = L.polygon(
-                [[36.27287313180779, 129.29458629798546], [36.2676537519125, 129.2853708204035], [36.26091608020398, 129.2769703680841], [36.252725004143976, 129.2694658419752], [36.24315940827265, 129.2629295147657], [36.232311414507315, 129.25742433485965], [36.22028549495807, 129.253003320149], [36.207197465804164, 129.24970904742221], [36.193173371921056, 129.2475732423265], [36.17834827299912, 129.2466164738324], [36.16286494284527, 129.24684795614365], [36.14687249439289, 129.248265459959], [36.130524943662955, 129.2508553339418], [36.11397972650547, 129.25459263618978], [36.09739618240619, 129.2594413744394], [36.0809340199603, 129.26535485269062], [36.064751778791255, 129.2722761209153], [36.04900530272766, 129.28013852351688], [36.033846238941884, 129.2888663412603], [36.01942057750498, 129.29837552048951], [36.00586724542246, 129.30857448261037], [35.99331676869125, 129.31936500604223], [35.9818900152631, 129.33064317214584], [35.97169703102001, 129.34230036601633], [35.96283597997229, 129.35422432250425], [35.95539219888547, 129.36630020739028], [35.9494373754406, 129.37841172330167], [35.94502885784272, 129.39044222971938], [35.9422091025262, 129.40227586628998], [35.94100526527617, 129.41379866862445], [35.941428939703464, 129.4248996658373], [35.94347604559173, 129.43547194925688], [35.94712686819221, 129.44541370201455], [35.9523462480875, 129.4546291795965], [35.95908391979601, 129.46302963191587], [35.96727499585601, 129.47053415802478], [35.97684059172733, 129.4770704852343], [35.98768858549267, 129.48257566514036], [35.99971450504193, 129.486996679851], [36.012802534195835, 129.4902909525778], [36.02682662807894, 129.4924267576735], [36.04165172700086, 129.49338352616758], [36.05713505715472, 129.49315204385636], [36.0731275056071, 129.49173454004102], [36.08947505633703, 129.48914466605822], [36.106020273494515, 129.48540736381017], [36.12260381759379, 129.4805586255606], [36.139065980039696, 129.47464514730936], [36.15524822120873, 129.46772387908467], [36.17099469727234, 129.45986147648307], [36.186153761058115, 129.4511336587397], [36.200579422495004, 129.44162447951047], [36.21413275457754, 129.43142551738964], [36.22668323130873, 129.42063499395775], [36.2381099847369, 129.40935682785414], [36.24830296897998, 129.39769963398368], [36.257164020027695, 129.38577567749576], [36.26460780111453, 129.37369979260973], [36.27056262455938, 129.36158827669828], [36.27497114215726, 129.34955777028063], [36.277790897473785, 129.33772413370997], [36.27899473472382, 129.32620133137556], [36.27857106029652, 129.3151003341627], [36.276523954408255, 129.3045280507431], [36.27287313180779, 129.29458629798546]],
-                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": "Cartodb Positron", "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 3}
-            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
-        
-    
-        var popup_e2ca94621e31d6e142671005db866e12 = L.popup({"maxWidth": 200, "minWidth": 200});
-
-        
-            var html_8c215cd731531cb58928b338b56f6bbe = $(`<div id="html_8c215cd731531cb58928b338b56f6bbe" style="width: 100.0%; height: 100.0%;"><h1 style="margin-bottom:0;"><b>포항 지진</b></h1> <br/>          <p style="margin:0;font-size:15px;"> 진원: KMA 36.11°N 129.36°E<br/> 여진역: 53.6km<sup>2</sup><br/>            장축: 16.7km<br/>            단축: 3.2km</p> </div>`)[0];
-            popup_e2ca94621e31d6e142671005db866e12.setContent(html_8c215cd731531cb58928b338b56f6bbe);
-        
-
-        polygon_53f85438a69e12c643c41d9749dae085.bindPopup(popup_e2ca94621e31d6e142671005db866e12)
-        ;
-
-        
-    
-    
-            polygon_53f85438a69e12c643c41d9749dae085.bindTooltip(
-                `<div>
-                     포항 지진 여진역 예측 범위
-                 </div>`,
-                {"sticky": true}
-            );
-        
-    
-            var poly_line_50aebc8f1bdabc86bad7ae359e50bbbb = L.polyline(
-                [[35.21, 128.83], [36.27, 129.54]],
-                {"bubblingMouseEvents": true, "color": "#25292e", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#25292e", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": "7"}
-            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
-        
-    
-            poly_line_50aebc8f1bdabc86bad7ae359e50bbbb.bindTooltip(
-                `<div>
+  poly_line_3864d733129910778743c5b82c0ee976.bindTooltip(
+    `<div>
                      양산단층
                  </div>`,
-                {"sticky": true}
-            );
-        
-    
-            var poly_line_cfa4492e57395d3ee4aa441494839ec2 = L.polyline(
-                [[35.9225, 129.2984], [35.5, 129.3822]],
-                {"bubblingMouseEvents": true, "color": "#25292e", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#25292e", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": "7"}
-            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
-        
-    
-            poly_line_cfa4492e57395d3ee4aa441494839ec2.bindTooltip(
-                `<div>
+    { sticky: true }
+  );
+
+  var poly_line_ac3323d5be67a0eee4230a0c7e9a55b5 = L.polyline(
+    [
+      [35.9225, 129.2984],
+      [35.5, 129.3822],
+    ],
+    {
+      bubblingMouseEvents: true,
+      color: "#25292e",
+      dashArray: null,
+      dashOffset: null,
+      fill: false,
+      fillColor: "#25292e",
+      fillOpacity: 0.2,
+      fillRule: "evenodd",
+      lineCap: "round",
+      lineJoin: "round",
+      noClip: false,
+      opacity: 1.0,
+      smoothFactor: 1.0,
+      stroke: true,
+      weight: "7",
+    }
+  ).addTo(map_e081f737edfbd08b86ac873fabb6bb9e);
+
+  poly_line_ac3323d5be67a0eee4230a0c7e9a55b5.bindTooltip(
+    `<div>
                      울산단층
                  </div>`,
-                {"sticky": true}
-            );
-        
-    
-            var circle_2d05ac1171f340add7c62ab7471cd3ba = L.circle(
-                [35.75, 129.18],
-                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": "crimson", "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 400, "stroke": true, "weight": "10"}
-            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
-        
-    
-            circle_2d05ac1171f340add7c62ab7471cd3ba.bindTooltip(
-                `<div>
+    { sticky: true }
+  );
+
+  var polygon_3cbd33132d528bf41f30c7b0ec2b95b2 = L.polygon(
+    [
+      [35.52999566943217, 129.0079325998348],
+      [35.520935717712284, 129.02169966860282],
+      [35.51408178025008, 129.03699125609796],
+      [35.50949986421011, 129.05366009597344],
+      [35.50723409594851, 129.07154565818905],
+      [35.5073062960523, 129.09047569500353],
+      [35.50971576919497, 129.11026789981406],
+      [35.51443931083301, 129.13073166286884],
+      [35.521431430678305, 129.151669906943],
+      [35.53062479079445, 129.1728809853001],
+      [35.54193085409794, 129.19416062366042],
+      [35.55524073701862, 129.2153038874739],
+      [35.570426258108085, 129.23610715555193],
+      [35.587341172496934, 129.2563700810507],
+      [35.60582258031302, 129.2758975209208],
+      [35.62569249549607, 129.29450141524157],
+      [35.64675955990087, 129.3120025983407],
+      [35.668820886180825, 129.32823252425783],
+      [35.69166401170385, 129.34303488993424],
+      [35.71506894468387, 129.35626714049664],
+      [35.738810282821845, 129.36780184213865],
+      [35.762659384053144, 129.37752790937793],
+      [35.78638656849573, 129.38535167487015],
+      [35.80976333039275, 129.39119779147674],
+      [35.832564538748144, 129.39500995789894],
+      [35.854570605461014, 129.3967514608902],
+      [35.87556960007919, 129.39640552882463],
+      [35.895359290805274, 129.39397549321723],
+      [35.91374909209944, 129.38948475663923],
+      [35.93056190012234, 129.38297656733877],
+      [35.94563579834187, 129.37451360273656],
+      [35.95882561687796, 129.36417736580808],
+      [35.970004330567825, 129.35206740016525],
+      [35.97906428228772, 129.33830033139722],
+      [35.98591821974992, 129.32300874390208],
+      [35.990500135789915, 129.3063399040266],
+      [35.99276590405148, 129.28845434181096],
+      [35.99269370394771, 129.26952430499648],
+      [35.99028423080503, 129.24973210018598],
+      [35.98556068916698, 129.2292683371312],
+      [35.97856856932171, 129.20833009305704],
+      [35.969375209205545, 129.18711901469993],
+      [35.95806914590209, 129.1658393763396],
+      [35.94475926298137, 129.14469611252616],
+      [35.92957374189193, 129.1238928444481],
+      [35.91265882750307, 129.10362991894934],
+      [35.89417741968698, 129.0841024790792],
+      [35.87430750450396, 129.06549858475844],
+      [35.85324044009914, 129.0479974016593],
+      [35.8311791138192, 129.03176747574219],
+      [35.80833598829615, 129.01696511006577],
+      [35.784931055316136, 129.00373285950337],
+      [35.76118971717817, 128.99219815786137],
+      [35.73734061594685, 128.9824720906221],
+      [35.7136134315043, 128.97464832512986],
+      [35.690236669607245, 128.9688022085233],
+      [35.66743546125187, 128.9649900421011],
+      [35.64542939453898, 128.96324853910988],
+      [35.62443039992081, 128.9635944711754],
+      [35.60464070919473, 128.9660245067828],
+      [35.586250907900556, 128.9705152433608],
+      [35.56943809987769, 128.97702343266127],
+      [35.55436420165813, 128.98548639726346],
+      [35.54117438312205, 128.995822634192],
+      [35.52999566943217, 129.0079325998348],
+    ],
+    {
+      bubblingMouseEvents: true,
+      color: "#3388ff",
+      dashArray: null,
+      dashOffset: null,
+      fill: "Cartodb Positron",
+      fillColor: "#3388ff",
+      fillOpacity: 0.2,
+      fillRule: "evenodd",
+      lineCap: "round",
+      lineJoin: "round",
+      noClip: false,
+      opacity: 1.0,
+      smoothFactor: 1.0,
+      stroke: true,
+      weight: 3,
+    }
+  ).addTo(map_e081f737edfbd08b86ac873fabb6bb9e);
+
+  var popup_d886be94f337dc87d73a34a804a1a230 = L.popup({
+    maxWidth: 200,
+    minWidth: 200,
+  });
+
+  var html_9dc9ca70aa7c85897af78985c6d8619b = $(
+    `<div id="html_9dc9ca70aa7c85897af78985c6d8619b" style="width: 100.0%; height: 100.0%;"><h1 style="margin-bottom:0;"><b>경주 지진</b></h1> <br/>          <p style="margin:0;font-size:15px;"> 진원: KMA 35.77°N 129.18°E<br/> 여진역: 152.1km<sup>2</sup><br/>            장축: 28.2km<br/>            단축: 5.3km</p> </div>`
+  )[0];
+  popup_d886be94f337dc87d73a34a804a1a230.setContent(
+    html_9dc9ca70aa7c85897af78985c6d8619b
+  );
+
+  polygon_3cbd33132d528bf41f30c7b0ec2b95b2.bindPopup(
+    popup_d886be94f337dc87d73a34a804a1a230
+  );
+
+  polygon_3cbd33132d528bf41f30c7b0ec2b95b2.bindTooltip(
+    `<div>
+                     경주 지진 여진역 인공지능의 예측 범위
+                 </div>`,
+    { sticky: true }
+  );
+
+  var circle_c3dbeec60ae845a1ca29c42cf6714a22 = L.circle([35.75, 129.18], {
+    bubblingMouseEvents: true,
+    color: "#000000",
+    dashArray: null,
+    dashOffset: null,
+    fill: "crimson",
+    fillColor: "#000000",
+    fillOpacity: 0.2,
+    fillRule: "evenodd",
+    lineCap: "round",
+    lineJoin: "round",
+    opacity: 1.0,
+    radius: 400,
+    stroke: true,
+    weight: "10",
+  }).addTo(map_e081f737edfbd08b86ac873fabb6bb9e);
+
+  circle_c3dbeec60ae845a1ca29c42cf6714a22.bindTooltip(
+    `<div>
                      경주 지진 진앙
                  </div>`,
-                {"sticky": true}
-            );
-        
-    
-            var circle_694b4b9b6addd4d2966335a5d31dbc8d = L.circle(
-                [36.11, 129.37],
-                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 400, "stroke": true, "weight": "10"}
-            ).addTo(map_8c4e4ff20362cf348822975aef46381a);
-        
-    
-            circle_694b4b9b6addd4d2966335a5d31dbc8d.bindTooltip(
-                `<div>
+    { sticky: true }
+  );
+
+  var polygon_85081cb467ca445bcdfc27d4cc2e8d02 = L.polygon(
+    [
+      [36.26820859230815, 129.4432539216508],
+      [36.271754858644265, 129.43359689171956],
+      [36.27374333726743, 129.42332738895544],
+      [36.2741548780415, 129.412544314284],
+      [36.272985517603836, 129.4013515146089],
+      [36.27024651753472, 129.38985678270961],
+      [36.26596425590208, 129.378170819138],
+      [36.26017997322635, 129.36640616611152],
+      [36.25294937531175, 129.35467612366995],
+      [36.244342096768804, 129.34309365853431],
+      [36.23444103039512, 129.33177031617555],
+      [36.22334152887235, 129.3208151465704],
+      [36.211150486467744, 129.310333653991],
+      [36.197985309584, 129.3004267809406],
+      [36.18397278607127, 129.2911899360223],
+      [36.16924786419105, 129.2827120751021],
+      [36.153952352990494, 129.27507484461512],
+      [36.13823355660382, 129.26835179526586],
+      [36.12224285563304, 129.26260767369473],
+      [36.106134249269886, 129.2578977989325],
+      [36.09006287219948, 129.25426752964796],
+      [36.074183500568566, 129.25175182731857],
+      [36.058649061406435, 129.25037491953327],
+      [36.043609159854256, 129.2501500666665],
+      [36.029208638385605, 129.25107943417436],
+      [36.01558618189434, 129.25315407173974],
+      [36.002872982083304, 129.25635399946873],
+      [35.99119147401637, 129.26064840030813],
+      [35.98065415700199, 129.26599591683015],
+      [35.97136251116334, 129.27234504952753],
+      [35.96340602012913, 129.27963465278162],
+      [35.9568613092575, 129.2877945237281],
+      [35.95179140769185, 129.2967460783492],
+      [35.948245141355734, 129.30640310828045],
+      [35.946256662732566, 129.31667261104457],
+      [35.9458451219585, 129.32745568571602],
+      [35.94701448239616, 129.3386484853911],
+      [35.94975348246528, 129.3501432172904],
+      [35.95403574409792, 129.361829180862],
+      [35.95982002677365, 129.3735938338885],
+      [35.96705062468825, 129.38532387633006],
+      [35.975657903231195, 129.3969063414657],
+      [35.98555896960488, 129.40822968382452],
+      [35.99665847112765, 129.4191848534296],
+      [36.008849513532255, 129.42966634600901],
+      [36.02201469041601, 129.4395732190594],
+      [36.03602721392873, 129.4488100639777],
+      [36.050752135808956, 129.4572879248979],
+      [36.06604764700951, 129.4649251553849],
+      [36.081766443396184, 129.47164820473415],
+      [36.097757144366966, 129.47739232630528],
+      [36.11386575073012, 129.4821022010675],
+      [36.12993712780052, 129.4857324703521],
+      [36.14581649943144, 129.48824817268144],
+      [36.161350938593564, 129.4896250804668],
+      [36.17639084014574, 129.48984993333352],
+      [36.190791361614394, 129.48892056582565],
+      [36.20441381810566, 129.48684592826027],
+      [36.217127017916695, 129.48364600053128],
+      [36.22880852598364, 129.47935159969188],
+      [36.239345842998006, 129.47400408316986],
+      [36.24863748883666, 129.46765495047248],
+      [36.25659397987087, 129.46036534721839],
+      [36.2631386907425, 129.4522054762719],
+      [36.26820859230815, 129.4432539216508],
+    ],
+    {
+      bubblingMouseEvents: true,
+      color: "#3388ff",
+      dashArray: null,
+      dashOffset: null,
+      fill: "Cartodb Positron",
+      fillColor: "#3388ff",
+      fillOpacity: 0.2,
+      fillRule: "evenodd",
+      lineCap: "round",
+      lineJoin: "round",
+      noClip: false,
+      opacity: 1.0,
+      smoothFactor: 1.0,
+      stroke: true,
+      weight: 3,
+    }
+  ).addTo(map_e081f737edfbd08b86ac873fabb6bb9e);
+
+  var popup_ae5364cb3872f6510f401ec3715cd370 = L.popup({
+    maxWidth: 200,
+    minWidth: 200,
+  });
+
+  var html_f61e47cba48ece449ad0a269688bfb5d = $(
+    `<div id="html_f61e47cba48ece449ad0a269688bfb5d" style="width: 100.0%; height: 100.0%;"><h1 style="margin-bottom:0;"><b>포항 지진</b></h1> <br/>          <p style="margin:0;font-size:15px;"> 진원: KMA 36.11°N 129.36°E<br/> 여진역: 53.6km<sup>2</sup><br/>            장축: 16.7km<br/>            단축: 3.2km</p> </div>`
+  )[0];
+  popup_ae5364cb3872f6510f401ec3715cd370.setContent(
+    html_f61e47cba48ece449ad0a269688bfb5d
+  );
+
+  polygon_85081cb467ca445bcdfc27d4cc2e8d02.bindPopup(
+    popup_ae5364cb3872f6510f401ec3715cd370
+  );
+
+  polygon_85081cb467ca445bcdfc27d4cc2e8d02.bindTooltip(
+    `<div>
+                     포항 지진 여진역 예측 범위
+                 </div>`,
+    { sticky: true }
+  );
+
+  var circle_7c4e0759b4938b8e22048cda3ae8442a = L.circle([36.11, 129.37], {
+    bubblingMouseEvents: true,
+    color: "#000000",
+    dashArray: null,
+    dashOffset: null,
+    fill: true,
+    fillColor: "#000000",
+    fillOpacity: 0.2,
+    fillRule: "evenodd",
+    lineCap: "round",
+    lineJoin: "round",
+    opacity: 1.0,
+    radius: 400,
+    stroke: true,
+    weight: "10",
+  }).addTo(map_e081f737edfbd08b86ac873fabb6bb9e);
+
+  circle_7c4e0759b4938b8e22048cda3ae8442a.bindTooltip(
+    `<div>
                      포항 지진 진앙
                  </div>`,
-                {"sticky": true}
-            );
-        
-    
-                var lat_lng_popup_4d1ad3abd35d46155ecbc2439e2e6f68 = L.popup();
-                function latLngPop(e) {
-                    lat_lng_popup_4d1ad3abd35d46155ecbc2439e2e6f68
-                        .setLatLng(e.latlng)
-                        .setContent("Latitude: " + e.latlng.lat.toFixed(4) +
-                                    "<br>Longitude: " + e.latlng.lng.toFixed(4))
-                        .openOn(map_8c4e4ff20362cf348822975aef46381a);
-                    }
-                map_8c4e4ff20362cf348822975aef46381a.on('click', latLngPop);
-            
+    { sticky: true }
+  );
+
+  var lat_lng_popup_f9781eb68914bfc280abb0691b688dba = L.popup();
+  function latLngPop(e) {
+    lat_lng_popup_f9781eb68914bfc280abb0691b688dba
+      .setLatLng(e.latlng)
+      .setContent(
+        "Latitude: " +
+          e.latlng.lat.toFixed(4) +
+          "<br>Longitude: " +
+          e.latlng.lng.toFixed(4)
+      )
+      .openOn(map_e081f737edfbd08b86ac873fabb6bb9e);
+  }
+  map_e081f737edfbd08b86ac873fabb6bb9e.on("click", latLngPop);
 </script>
